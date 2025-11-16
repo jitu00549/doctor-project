@@ -1,0 +1,4 @@
+services:
+  appointment_booking_otp.slot_generator:
+    class: Drupal\appointment_booking_otp\Service\SlotGenerator
+    arguments: ['@database', '@datetime.time']

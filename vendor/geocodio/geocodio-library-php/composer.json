@@ -1,0 +1,70 @@
+{
+    "name": "geocodio/geocodio-library-php",
+    "description": "geocod.io geocoding API library",
+    "keywords": [
+        "geocodio",
+        "geocodio-library-php"
+    ],
+    "homepage": "https://github.com/geocodio/geocodio-library-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mathias Hansen",
+            "email": "hello@geocod.io",
+            "homepage": "https://www.geocod.io",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.17",
+        "pestphp/pest": "^3.0",
+        "phpunit/phpunit": "^11.0",
+        "projektgopher/whisky": "^0.7.0",
+        "rector/rector": "^1.2",
+        "symfony/var-dumper": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Geocodio\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Geocodio\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "whisky update"
+        ],
+        "post-update-cmd": [
+            "whisky update"
+        ],
+        "test": "vendor/bin/pest",
+        "toc": "markdown-toc README.md -i",
+        "format": [
+            "pint",
+            "rector process --no-diffs"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Geocodio\\GeocodioServiceProvider"
+            ],
+            "aliases": {
+                "Geocodio": "Geocodio\\GeocodioFacade"
+            }
+        }
+    }
+}

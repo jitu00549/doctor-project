@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Install file for booking_form module (Drupal 10 version).
+ */
+
+/**
+ * Implements hook_install().
+ */
+function booking_form_install() {
+  // Create custom table for booking_form_data
+  $schema = \Drupal::database()->schema();
+
+  if (!$schema->tableExists('booking_form_data')) {
+    $schema->createTable('booking_form_data', [
+      'fields' => [
+        'id' => [
+          'type' => 'serial',
+          'not null' => TRUE,
+        ],
+        'name' => [
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ],
+        'email' => [
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ],
+        'phone' => [
+          'type' => 'varchar',
+          'length' => 20,
+          'not null' => TRUE,
+        ],
+        'day' => [
+          'type' => 'varchar',
+          'length' => 20,
+          'not null' => TRUE,
+        ],
+        'time_slot' => [
+          'type' => 'varchar',
+          'length' => 50,
+          'not null' => TRUE,
+        ],
+        'created' => [
+          'type' => 'int',
+          'not null' => TRUE,
+          'default' => 0,
+        ],
+      ],
+      'primary key' => ['id'],
+    ]);
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function booking_form_uninstall() {
+  $schema = \Drupal::database()->schema();
+  if ($schema->tableExists('booking_form_data')) {
+    $schema->dropTable('booking_form_data');
+  }
+}

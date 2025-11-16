@@ -1,0 +1,7 @@
+clinic_appointment.form:
+  path: '/book-appointment'
+  defaults:
+    _form: '\Drupal\clinic_appointment\Form\ClinicAppointmentForm'
+    _title: 'Book an Appointment'
+  requirements:
+    _permission: 'access content'

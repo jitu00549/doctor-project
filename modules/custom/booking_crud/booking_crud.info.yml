@@ -1,0 +1,7 @@
+name: Booking CRUD
+type: module
+description: 'Custom booking form with CRUD, email & WhatsApp confirmation.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:file

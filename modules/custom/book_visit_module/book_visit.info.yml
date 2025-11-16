@@ -1,0 +1,6 @@
+name: "Book Visit jitendra singh"
+type: module
+description: "Provides a simple /book-visit-form to let users book a consultation."
+core_version_requirement: ^10 || ^11
+package: Custom
+version: 1.0.0

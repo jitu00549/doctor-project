@@ -1,0 +1,15 @@
+doctor_booking.form:
+  path: '/doctor-booking'
+  defaults:
+    _form: '\Drupal\doctor_booking\Form\BookingForm'
+    _title: 'Book a Doctor Appointment'
+  requirements:
+    _permission: 'access doctor booking form'
+
+doctor_booking.thankyou:
+  path: '/doctor-booking/thank-you'
+  defaults:
+    _controller: '\Drupal\doctor_booking\Controller\BookingController::thankYou'
+    _title: 'Booking Confirmed'
+  requirements:
+    _permission: 'access content'

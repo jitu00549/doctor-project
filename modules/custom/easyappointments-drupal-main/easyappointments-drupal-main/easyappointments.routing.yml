@@ -1,0 +1,7 @@
+easyappointments.settings:
+  path: '/admin/config/easy-appointments'
+  defaults:
+    _form: '\Drupal\easyappointments\Form\EasyAppointmentsSettingsForm'
+    _title: 'Easy!Appointments Settings'
+  requirements:
+    _permission: 'administer site configuration'

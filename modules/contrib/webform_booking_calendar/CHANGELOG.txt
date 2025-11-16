@@ -1,0 +1,12 @@
+Webform Booking Calendar Module
+===============================
+
+Version 1.0.1
+--------------
+- Added total price display in calendar tooltips.
+- Minor fixes and improvements.
+
+Version 1.0.0
+--------------
+- Initial release of the Webform Booking Calendar module.
+- Provides integration with FullCalendar for visualizing webform bookings.

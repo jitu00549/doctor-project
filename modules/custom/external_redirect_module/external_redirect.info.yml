@@ -1,0 +1,5 @@
+name: 'External Redirect'
+type: module
+description: 'Redirects users to an external URL using TrustedRedirectResponse.'
+core_version_requirement: ^10 || ^11
+package: Custom

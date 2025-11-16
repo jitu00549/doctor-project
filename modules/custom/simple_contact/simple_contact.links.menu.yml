@@ -1,0 +1,6 @@
+simple_contact.admin:
+  title: 'Simple contacts'
+  description: 'Manage simple contacts.'
+  parent: system.admin_content
+  route_name: simple_contact.list
+  weight: 100

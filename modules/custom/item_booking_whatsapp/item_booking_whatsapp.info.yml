@@ -1,0 +1,5 @@
+name: 'Item Booking WhatsApp'
+type: module
+description: 'Book items and send WhatsApp confirmation messages.'
+core_version_requirement: ^10
+package: Custom

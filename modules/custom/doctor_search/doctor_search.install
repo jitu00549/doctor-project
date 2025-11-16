@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function doctor_search_install() {
+  \Drupal::messenger()->addMessage(t('Doctor Search module installed successfully.'));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function doctor_search_uninstall() {
+  \Drupal::messenger()->addMessage(t('Doctor Search module uninstalled.'));
+}

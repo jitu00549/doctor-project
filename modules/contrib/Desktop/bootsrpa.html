@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Doctor Consultation</title>
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .consult-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .consult-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .doctor-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .features span {
+      display: flex;
+      align-items: center;
+    }
+
+    .features span::before {
+      content: "✔";
+      color: green;
+      margin-right: 5px;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .container {
+      padding: 40px;
+      background-color: #f8e0d1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- Left Content -->
+    <div class="content">
+      <h1 class="h2">Skip the travel!<br> Take Online Doctor Consultation</h1>
+      <p class="lead">Private consultation + Audio call · Starts at just ₹199</p>
+
+      <!-- Doctors' Images -->
+      <div class="d-flex align-items-center mb-3">
+        <img src="https://picsum.photos/50/50?random=1" alt="Doctor 1" class="doctor-img">
+        <img src="https://picsum.photos/50/50?random=2" alt="Doctor 2" class="doctor-img">
+        <img src="https://picsum.photos/50/50?random=3" alt="Doctor 3" class="doctor-img">
+        <p class="mb-0 ms-2">+137 Doctors are online</p>
+      </div>
+
+      <!-- Consult Button -->
+      <button class="consult-btn mb-3">Consult Now</button>
+
+      <!-- Features List -->
+      <div class="features">
+        <span>Verified Doctors</span>
+        <span>Digital Prescription</span>
+        <span>Free Followup</span>
+      </div>
+    </div>
+
+    <!-- Image Section -->
+    <div class="image-container">
+      <img src="https://picsum.photos/400/400?random=4" alt="Woman consulting doctor">
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (Optional, if you need Bootstrap's JS components) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

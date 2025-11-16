@@ -1,0 +1,7 @@
+name: "Clinic Booking final"
+type: module
+description: "Clinic Booking module for find_doctor content type booked"
+core_version_requirement: ^10
+package: "Custom"
+dependencies:
+  - drupal:node

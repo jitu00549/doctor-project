@@ -1,0 +1,7 @@
+name: 'Clinic Appointment'
+type: module
+description: 'Custom form for doctor clinic appointment booking.'
+core_version_requirement: ^10 || ^11
+package: 'Custom'
+dependencies:
+  - drupal:datetime

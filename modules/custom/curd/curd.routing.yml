@@ -1,0 +1,38 @@
+curd.add_form:
+  path: '/curd/add'
+  defaults:
+    _form: '\Drupal\curd\Form\CrudForm'
+    _title: 'Add Record'
+  requirements:
+    _permission: 'access content'
+
+curd.edit_form:
+  path: '/curd/edit/{id}'
+  defaults:
+    _form: '\Drupal\curd\Form\CrudForm'
+    _title: 'Edit Record'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      id:
+        type: 'integer'
+
+curd.list:
+  path: '/admin/curd/list'
+  defaults:
+    _controller: '\Drupal\curd\Controller\CrudController::list'
+    _title: 'Record List'
+  requirements:
+    _permission: 'access content'
+
+curd.delete:
+  path: '/curd/delete/{id}'
+  defaults:
+    _controller: '\Drupal\curd\Controller\CrudController::delete'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      id:
+        type: 'integer'

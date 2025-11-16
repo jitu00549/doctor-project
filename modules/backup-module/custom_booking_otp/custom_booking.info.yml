@@ -1,0 +1,5 @@
+name: 'Custom Booking with OTP'
+type: module
+description: 'Booking form with OTP verification via SMS and email.'
+core_version_requirement: ^10 || ^11
+package: Custom

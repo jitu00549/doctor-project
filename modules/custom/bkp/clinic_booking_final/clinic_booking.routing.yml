@@ -1,0 +1,15 @@
+clinic_booking.list:
+  path: "/clinic-booking"
+  defaults:
+    _controller: '\Drupal\clinic_booking\Controller\ClinicBookingController::doctorList'
+    _title: "Clinic Booking"
+  requirements:
+    _permission: "access content"
+
+clinic_booking.form:
+  path: "/clinic-booking/form/{doctor}"
+  defaults:
+    _form: '\Drupal\clinic_booking\Form\ClinicBookingForm'
+    _title: "Book Appointment"
+  requirements:
+    _permission: "access content"

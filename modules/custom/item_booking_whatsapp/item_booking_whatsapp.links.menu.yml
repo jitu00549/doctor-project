@@ -1,0 +1,6 @@
+item_booking_whatsapp.menu:
+  title: 'Item Booking (WhatsApp)'
+  description: 'Form to book an item and send WhatsApp message.'
+  route_name: item_booking_whatsapp.form
+  parent: system.admin_content
+  weight: 10

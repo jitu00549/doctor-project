@@ -1,0 +1,6 @@
+name: 'Book Visit Form'
+type: module
+description: 'Provides a modal booking form (5 fields) for doctor cards. Use with Views rewrite output and use-ajax links.'
+package: Custom
+core_version_requirement: '^10'
+dependencies: []

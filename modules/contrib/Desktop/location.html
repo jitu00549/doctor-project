@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Detect Location</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+  }
+  .location-container {
+    position: relative;
+    width: 300px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  .icon {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #007bff;
+  }
+</style>
+</head>
+<body>
+
+<h2>🌍 Auto Detect Location</h2>
+
+<div class="location-container">
+  <input type="text" id="locationInput" placeholder="Detecting your location...">
+  <span class="icon" id="detectBtn">📍</span>
+</div>
+
+<script>
+  // जब पेज खुले तो लोकेशन detect करे
+  window.onload = getLocation;
+
+  document.getElementById("detectBtn").addEventListener("click", getLocation);
+
+  function getLocation() {
+    const input = document.getElementById("locationInput");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      input.value = "Geolocation not supported";
+    }
+  }
+
+  function showPosition(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+
+    // OpenStreetMap API से location name लाना
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`)
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("locationInput").value = data.address.city || data.address.town || data.address.village || "Location not found";
+      });
+  }
+
+  function showError(error) {
+    const input = document.getElementById("locationInput");
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        input.value = "Permission denied";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        input.value = "Position unavailable";
+        break;
+      case error.TIMEOUT:
+        input.value = "Request timed out";
+        break;
+      default:
+        input.value = "Unknown error";
+        break;
+    }
+  }
+</script>
+
+</body>
+</html>

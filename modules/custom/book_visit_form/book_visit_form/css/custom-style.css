@@ -1,0 +1,193 @@
+.book-visit-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.speciality-container {
+  margin-bottom: 20px;
+}
+
+.radio-tags .tag {
+  display: inline-block;
+  border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: #f8f9fb;
+}
+
+.radio-tags .tag.selected {
+  border-color: #007bff;
+  background-color: #e9f3ff;
+}
+
+.tag-label {
+  font-weight: 500;
+}
+
+.tag-label .price {
+  margin-left: 8px;
+  color: #333;
+}
+
+
+input#edit-phone {
+/* max-width: 290px!important; */
+padding: 10px!important;
+}
+
+
+
+.page-content input[type=text], .page-content input[type=password], .page-content input[type=search] {
+    padding: 9px 6px;
+    outline: 0;
+    /* width: 335px!important; */
+    padding: 12px!important;
+}
+
+
+.speciality-box:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Image slider styles */
+#doctor-slider {
+  position: relative;
+}
+.slider-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.slider-img.active {
+  opacity: 1;
+}
+
+#book-visit-container.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+
+ .guiding-slider {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      height: 400px;
+      /* margin: 40px auto; */
+      overflow: hidden;
+      border-radius: 15px;
+      background: #fff;
+
+      /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
+    }
+
+    .guiding-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      opacity: 0;
+      animation: fade 12s infinite;
+      margin-top: 10%!important;
+    }
+
+    .guiding-slide img {
+      height: 108px;
+      margin-top: 20px;
+    }
+
+    .guiding-slide h4 {
+      font-weight: 600;
+      margin-top: 10px;
+      color: #222;
+    }
+
+    /* Animations for 3 slides */
+    .guiding-slide:nth-child(1) { animation-delay: 0s; }
+    .guiding-slide:nth-child(2) { animation-delay: 4s; }
+    .guiding-slide:nth-child(3) { animation-delay: 8s; }
+
+    @keyframes fade {
+      0%   { opacity: 0; }
+      5%   { opacity: 1; }
+      30%  { opacity: 1; }
+      35%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+
+
+   
+
+
+/* Default (Desktop) */
+div#book-visit-container {
+  width: 810px;
+  margin: 0 auto; /* Centers the container */
+}
+
+/* For tablets (<= 992px) */
+@media (max-width: 992px) {
+  div#book-visit-container {
+    width: 85%; /* Use percentage for flexible layout */
+  }
+}
+
+/* For mobile phones (<= 576px) */
+@media (max-width: 576px) {
+  div#book-visit-container {
+    width: 100%; /* Full width on small screens */
+    padding: 0 15px; /* Add a little side spacing */
+  }
+}
+
+
+
+.my-line {
+  border-right: 1px solid black; /* Creates a 1px solid black line */
+  height: 350px; /* Sets the height of the line */
+  margin-top: 10px !important;
+  left: 50%;
+}
+
+/* ✅ Responsive adjustments */
+
+/* For tablets and smaller (<= 768px) */
+@media (max-width: 768px) {
+  .my-line {
+    border-right: none;   /* Remove vertical line */
+    border-bottom: 1px solid black; /* Optional: horizontal line instead */
+    height: 1px;          /* Line becomes horizontal */
+    width: 100%;          /* Full width line */
+    left: 0;              /* Reset positioning */
+    margin: 20px 0;       /* Add spacing */
+  }
+}
+
+/* For large screens (>= 992px) */
+@media (min-width: 992px) {
+  .my-line {
+    border-right: 1px solid black; /* Keep vertical line */
+    border-bottom: none;
+    height: 350px;
+    width: auto;
+  }
+}
+
+
+
+.rounded-3 {
+    border-radius: var(--bs-border-radius-lg) !important;
+    width: 300px!important;
+}

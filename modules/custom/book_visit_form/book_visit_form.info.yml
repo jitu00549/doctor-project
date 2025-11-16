@@ -1,0 +1,5 @@
+name: 'Book Visit Form'
+type: module
+description: 'Doctor booking form that redirects to consultation page using taxonomy term ID.'
+core_version_requirement: ^10 || ^11
+package: Custom

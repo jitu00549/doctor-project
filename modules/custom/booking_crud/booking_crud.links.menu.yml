@@ -1,0 +1,6 @@
+booking_crud.admin:
+  title: 'Booking List'
+  description: 'Manage booking submissions'
+  parent: system.admin_content
+  route_name: booking_crud.list
+  weight: 10

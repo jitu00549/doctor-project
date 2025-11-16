@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popup Form Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Popup background */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+
+    /* Popup box */
+    .popup-box {
+      background: #fff;
+      width: 320px;
+      margin: 100px auto;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .popup-box h2 {
+      margin-bottom: 15px;
+    }
+
+    .popup-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .popup-box button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popup-box button:hover {
+      background: #0056b3;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .bg-primary {
+      background: #007bff;
+    }
+
+    .text-white {
+      color: white;
+    }
+
+    .p-2 {
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    a.bg-primary:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+   <div class="#">
+    <div class="doctor-card">
+      <div class="row align-items-center">
+        
+        <!-- Doctor Image -->
+        <div class="col-md-2 text-center mb-3 mb-md-0">
+      {{ field_photu }}
+          
+        </div>
+
+        <!-- Doctor Info -->
+        <div class="col-md-6">
+          <a href="/vkmishra2"><h5 class="text-primary fw-bold mb-1">{{ title }}</h5></a>
+          <p class="text-muted mb-1">{{ field_specialist_doctor_menu }}</p>
+          <p class="mb-1">{{ field_ex }}</p>
+          <p class="mb-1"><strong>{{ field_addree }} </strong> • Smile Craft Dental and Implant Centre.</p>
+       <p class="mb-1"><strong>Card  {{ field_card_panel }} </strong>
+          <p class="text-muted mb-2">₹{{ field_consultation_fee_at_clinic }} Consultation fee at clinic</p>
+
+          <div class="d-flex align-items-center">
+            <div class="rating-box me-2">
+              <i class="bi bi-hand-thumbs-up-fill"></i> 98%
+            </div>
+            <a href="#" class="fw-semibold text-decoration-none text-dark">482 Patient Stories</a>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="col-md-3 text-center mt-3 mt-md-0">
+          <p class="text-success fw-semibold mb-2">
+            <i class="bi bi-calendar-check"></i> Available Today
+          </p>
+      
+   
+ 
+          <a href="#" class="bg-primary text-white p-2  text-white"><button class="btn book-btn w-100 mb-2 bg -dark text-white pb-4 ">Book Clinic Visit</a><br<br>
+        <a href="#" class="border border-primary p-2 mt-4 d-inline-block" id="contactBtn">
+    <i class="bi bi-telephone"></i> Contact Clinic
+  </a>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Your main button -->
+  <a href="#" id="openPopup" class="bg-primary text-white p-2">Book Clinic Visit</a>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popupForm">
+    <div class="popup-box">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <h2>Book Clinic Visit</h2>
+      <form id="clinicForm">
+        <input type="text" id="name" placeholder="Enter Name" required><br>
+        <input type="tel" id="mobile" placeholder="Enter Mobile Number" required><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const openPopup = document.getElementById('openPopup');
+    const closePopup = document.getElementById('closePopup');
+    const popupForm = document.getElementById('popupForm');
+    const clinicForm = document.getElementById('clinicForm');
+
+    // Open popup
+    openPopup.addEventListener('click', (e) => {
+      e.preventDefault();
+      popupForm.style.display = 'block';
+    });
+
+    // Close popup
+    closePopup.addEventListener('click', () => {
+      popupForm.style.display = 'none';
+    });
+
+    // Close when clicking outside the box
+    window.addEventListener('click', (e) => {
+      if (e.target === popupForm) {
+        popupForm.style.display = 'none';
+      }
+    });
+
+    // Submit form
+    clinicForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const mobile = document.getElementById('mobile').value;
+      alert(`Thank you, ${name}! Your mobile number (${mobile}) has been recorded.`);
+      popupForm.style.display = 'none';
+      clinicForm.reset();
+    });
+  </script>
+
+</body>
+</html>

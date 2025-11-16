@@ -1,0 +1,6 @@
+item_booking.menu:
+  title: 'Item Booking'
+  description: 'Form to book an item'
+  route_name: item_booking.form
+  parent: system.admin_content
+  weight: 10

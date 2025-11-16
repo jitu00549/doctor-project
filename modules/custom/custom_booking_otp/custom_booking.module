@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_mail().
+ */
+function custom_booking_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'otp_mail':
+      $message['subject'] = 'Your Booking OTP';
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'confirm_mail':
+      $message['subject'] = 'Booking Confirmation';
+      $message['body'][] = $params['message'];
+      break;
+  }
+}

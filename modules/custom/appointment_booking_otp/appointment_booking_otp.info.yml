@@ -1,0 +1,8 @@
+name: 'Appointment Booking with OTP'
+type: module
+description: 'Doctor appointment booking with working hours, slot duration, OTP verification, and database + content type save.'
+core_version_requirement: ^10
+package: 'Custom'
+dependencies:
+  - node
+  - user

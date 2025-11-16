@@ -1,0 +1,7 @@
+item_booking.form:
+  path: "/item-booking"
+  defaults:
+    _form: '\Drupal\item_booking\Form\ItemBookingForm'
+    _title: "Book an Item"
+  requirements:
+    _permission: "access content"

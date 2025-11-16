@@ -1,0 +1,14 @@
+<?php
+function simple_contact_schema() {
+  $schema['simple_contact'] = [
+    'description' => 'Stores simple contacts (name + mobile).',
+    'fields' => [
+      'id' => ['type' => 'serial', 'not null' => TRUE],
+      'name' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+      'mobile' => ['type' => 'varchar', 'length' => 30, 'not null' => TRUE],
+      'created' => ['type' => 'int', 'not null' => TRUE, 'default' => 0],
+    ],
+    'primary key' => ['id'],
+  ];
+  return $schema;
+}

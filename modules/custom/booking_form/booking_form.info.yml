@@ -1,0 +1,5 @@
+name: 'Booking Form'
+type: module
+description: 'Provides a custom booking form with name, email, phone, date, and time slot. Auto-creates a booking content type and fields on install.'
+core_version_requirement: ^10
+package: Custom

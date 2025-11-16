@@ -1,0 +1,19 @@
+<div class="doctor-search-wrapper">
+  <div class="doctor-search-form">
+    {{ form }}
+  </div>
+
+  <div class="doctor-results">
+    {% if doctors %}
+      {% for doctor in doctors %}
+        <div class="doctor-card">
+          <h4>{{ doctor.title }}</h4>
+          <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+          <p><strong>Location:</strong> {{ doctor.address }}</p>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No doctors found.</p>
+    {% endif %}
+  </div>
+</div>

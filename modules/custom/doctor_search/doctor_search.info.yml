@@ -1,0 +1,9 @@
+name: Doctor Search
+type: module
+description: Provides doctor search by location, specialization, and geolocation.
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - node
+  - geolocation
+  - address

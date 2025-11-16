@@ -1,0 +1,12 @@
+name: 'Bootstrap Horizontal Tabs Test Content Type'
+type: module
+description: 'Test content type containing a bootstrap horizontal tabs field'
+package: Testing
+dependencies:
+  - drupal:bootstrap_horizontal_tabs
+core_incompatible: false
+
+# Information added by Drupal.org packaging script on 2025-10-07
+version: '3.1.0'
+project: 'bootstrap_horizontal_tabs'
+datestamp: 1759865581

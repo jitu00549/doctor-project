@@ -1,0 +1,6 @@
+curd.admin:
+  title: 'Curd - Records'
+  description: 'Manage curd records'
+  parent: system.admin_content
+  route_name: curd.list
+  weight: 100

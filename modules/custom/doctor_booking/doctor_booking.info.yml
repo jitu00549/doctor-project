@@ -1,0 +1,7 @@
+name: Doctor Appointment Booking
+type: module
+description: Provides a custom appointment booking form with weekly slots and WhatsApp notifications.
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - node

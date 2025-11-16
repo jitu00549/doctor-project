@@ -1,0 +1,5 @@
+name: "Custom Booking Register with OTP"
+type: module
+description: "Provides booking form with OTP verification and registration. test opt"
+core_version_requirement: ^10
+package: Custom

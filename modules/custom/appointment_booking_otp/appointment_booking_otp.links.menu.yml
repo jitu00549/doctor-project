@@ -1,0 +1,5 @@
+appointment_booking_otp.booking:
+  title: 'Book Appointment'
+  route_name: appointment_booking_otp.form
+  parent: system.main
+  description: 'Open the appointment booking form.'

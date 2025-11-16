@@ -1,0 +1,7 @@
+external_redirect.redirect:
+  path: '/go-external'
+  defaults:
+    _controller: '\Drupal\external_redirect\Controller\ExternalRedirectController::redirect'
+    _title: 'External Redirect'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,40 @@
+<input type="text" 
+       id="edit-combine-1" 
+       placeholder="Detecting location..." 
+       class="form-text" 
+       size="30" 
+       maxlength="128">
+
+<script>
+(function ($) {
+  $(document).ready(function () {
+
+    var $input = $('#edit-combine-1');
+
+    // Check if browser supports geolocation
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+
+        // Reverse geocoding using OpenStreetMap (no API key required)
+        var apiUrl = "https://nominatim.openstreetmap.org/reverse?lat=" + lat + "&lon=" + lon + "&format=json";
+
+        $.getJSON(apiUrl, function (data) {
+          if (data && data.display_name) {
+            $input.val(data.display_name);
+          } else {
+            $input.val("Unable to detect location");
+          }
+        });
+
+      }, function (error) {
+        $input.val("Location access denied");
+      });
+    } else {
+      $input.val("Geolocation not supported");
+    }
+
+  });
+})(jQuery);
+</script>

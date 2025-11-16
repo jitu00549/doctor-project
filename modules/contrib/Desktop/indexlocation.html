@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Practo Style Auto Detect + Search Location</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    padding: 50px;
+  }
+
+  .c-omni-searchbox_wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 8px 15px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .c-omni-searchbox__icon {
+    margin-right: 10px;
+    color: #007bff;
+    font-size: 18px;
+  }
+
+  .c-omni-searchbox {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .c-omni-clear {
+    cursor: pointer;
+    color: #888;
+    font-size: 16px;
+    margin-left: 5px;
+    display: none;
+  }
+
+  #status {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #555;
+  }
+
+  /* Suggestion dropdown */
+  .suggestions {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .suggestion-item {
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+  .suggestion-item:hover {
+    background: #f0f0f0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Practo-style search input -->
+<div class="c-omni-searchbox_wrapper">
+  <span class="c-omni-searchbox__icon">📍</span>
+  <input type="text" id="location" class="c-omni-searchbox c-omni-searchbox--small"
+         placeholder="Search location (e.g. Delhi, Agra, Kanpur)" autocomplete="off" />
+  <span class="c-omni-clear" id="clearBtn">✖</span>
+  <div id="suggestions" class="suggestions" style="display:none;"></div>
+</div>
+
+<p id="status">Detecting your location...</p>
+
+<script>
+$(function(){
+  const $input = $('#location');
+  const $suggestions = $('#suggestions');
+
+  function setStatus(msg){ $('#status').text(msg); }
+
+  // Reverse geocode: get address from lat/lon
+  async function reverseGeocode(lat, lon){
+    const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&addressdetails=1`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    } catch (e) {
+      setStatus("❌ Error fetching location.");
+      return null;
+    }
+  }
+
+  // Auto fill detected city
+  function fillDetectedLocation(data){
+    if(!data) return;
+    const addr = data.address || {};
+    const city = addr.city || addr.town || addr.village || addr.county || '';
+    $input.val(city);
+    $('#clearBtn').show();
+    setStatus('✅ Current location: ' + city);
+  }
+
+  // Detect current location automatically
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(async function(pos){
+      const lat = pos.coords.latitude, lon = pos.coords.longitude;
+      setStatus("📍 Detecting your city...");
+      const data = await reverseGeocode(lat, lon);
+      fillDetectedLocation(data);
+    }, function(){
+      setStatus("⚠️ Unable to detect location. Type manually.");
+    });
+  }
+
+  // Clear input
+  $('#clearBtn').click(function(){
+    $input.val('');
+    $(this).hide();
+    $suggestions.hide();
+  });
+
+  // Fetch city suggestions from Nominatim
+  async function searchCity(query){
+    const url = `https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(query)}&format=jsonv2&limit=5`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    } catch (e) {
+      return [];
+    }
+  }
+
+  // Show suggestions below input
+  async function showSuggestions(query){
+    if(query.length < 2){
+      $suggestions.hide();
+      return;
+    }
+    const results = await searchCity(query);
+    if(!results.length){
+      $suggestions.hide();
+      return;
+    }
+
+    let html = '';
+    results.forEach(r => {
+      html += `<div class="suggestion-item" data-name="${r.display_name}">
+                ${r.display_name.split(',')[0]} <small style="color:#888;">${r.display_name.split(',').slice(1,2)}</small>
+              </div>`;
+    });
+    $suggestions.html(html).show();
+  }
+
+  // On typing, show suggestions
+  $input.on('input', function(){
+    const query = $(this).val();
+    $('#clearBtn').toggle(query.length > 0);
+    showSuggestions(query);
+  });
+
+  // On suggestion click
+  $suggestions.on('click', '.suggestion-item', function(){
+    const name = $(this).data('name');
+    $input.val(name.split(',')[0]);
+    $suggestions.hide();
+    setStatus('📍 Selected: ' + name);
+  });
+
+  // Hide suggestions if click outside
+  $(document).on('click', function(e){
+    if(!$(e.target).closest('.c-omni-searchbox_wrapper').length){
+      $suggestions.hide();
+    }
+  });
+});
+</script>
+
+</body>
+</html>

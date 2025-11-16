@@ -1,0 +1,6 @@
+doctor_booking.menu:
+  title: 'Doctor Booking'
+  description: 'Book doctor appointments'
+  route_name: doctor_booking.form
+  parent: system.main_content
+  weight: 10

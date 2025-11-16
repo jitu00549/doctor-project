@@ -1,0 +1,13 @@
+field.formatter.settings.bootstrap_horizontal_tabs:
+  type: mapping
+  label: 'Bootstrap horizontal tabs header display options'
+  mapping:
+    tab_display:
+      type: string
+      label: 'Header display'
+bootstrap_horizontal_tabs.settings:
+  type: config_entity
+  mapping:
+    version:
+      type: string
+      label: 'Bootstrap version'

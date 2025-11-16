@@ -1,0 +1,8 @@
+direct_new_consultation.form:
+  path: "/direct/new_consultation/{term_id}"
+  defaults:
+    _form: '\Drupal\direct_new_consultation\Form\DirectNewConsultationForm'
+    _title: "Book Consultation"
+  requirements:
+    _permission: "access content"
+    term_id: '\d+'

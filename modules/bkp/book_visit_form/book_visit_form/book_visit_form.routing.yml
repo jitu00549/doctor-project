@@ -1,0 +1,7 @@
+book_visit_form.popup:
+  path: '/book-visit-form'
+  defaults:
+    _form: '\Drupal\book_visit_form\Form\BookVisitForm'
+    _title: 'Book Clinic Visit'
+  requirements:
+    _permission: 'access content'

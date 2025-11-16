@@ -1,0 +1,7 @@
+name: 'New Consultation'
+type: module
+description: 'Display node data with consultation form.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - node

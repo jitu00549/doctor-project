@@ -1,0 +1,18 @@
+{
+  "name": "drupal/sms_fast2sms",
+  "description": "Enables modules to use Fast2sms API.",
+  "type": "drupal-module",
+  "homepage": "http://drupal.org/project/sms_fast2sms",
+  "authors": [
+    {
+      "name": "Sadashiv Dalvi",
+      "email": "dalvisadashiv@gmail.com",
+      "role": "Maintainer"
+    }
+  ],
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal\smsframework'": "^2.0@alpha"
+  }
+}

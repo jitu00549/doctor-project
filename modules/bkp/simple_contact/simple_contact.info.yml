@@ -1,0 +1,5 @@
+name: Simple Contact (CRUD)
+type: module
+description: 'Minimal module demonstrating CRUD (name + mobile) using Drupal 10 Form API and Database API.'
+core_version_requirement: ^10
+package: Custom

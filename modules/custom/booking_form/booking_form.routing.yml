@@ -1,0 +1,15 @@
+booking_form.form:
+  path: '/booking/form'
+  defaults:
+    _form: '\Drupal\\booking_form\\Form\\BookingForm'
+    _title: 'Book an Appointment'
+  requirements:
+    _permission: 'access booking form'
+
+booking_form.list:
+  path: '/booking/list'
+  defaults:
+    _controller: '\Drupal\\booking_form\\Controller\\BookingController::list'
+    _title: 'Booking List'
+  requirements:
+    _permission: 'access booking form'

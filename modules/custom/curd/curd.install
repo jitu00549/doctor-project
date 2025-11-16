@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function curd_schema() {
+  $schema['curd'] = [
+    'description' => 'Stores name and mobile records.',
+    'fields' => [
+      'id' => ['type' => 'serial', 'not null' => TRUE],
+      'name' => ['type' => 'varchar', 'length' => 100, 'not null' => TRUE],
+      'mobile' => ['type' => 'varchar', 'length' => 15, 'not null' => TRUE],
+      'created' => ['type' => 'int', 'not null' => TRUE, 'default' => 0],
+    ],
+    'primary key' => ['id'],
+  ];
+  return $schema;
+}

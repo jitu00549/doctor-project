@@ -1,0 +1,14 @@
+doctor_search.form:
+  path: "/find-doctor"
+  defaults:
+    _controller: '\Drupal\doctor_search\Controller\DoctorSearchController::searchPage'
+    _title: "Find a Doctor"
+  requirements:
+    _permission: "access doctor search"
+
+doctor_search.api:
+  path: "/api/doctors"
+  defaults:
+    _controller: '\Drupal\doctor_search\Controller\DoctorApiController::getDoctors'
+  requirements:
+    _permission: "access doctor search api"

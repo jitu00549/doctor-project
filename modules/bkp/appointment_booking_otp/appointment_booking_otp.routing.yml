@@ -1,0 +1,15 @@
+appointment_booking_otp.form:
+  path: '/appointment-booking'
+  defaults:
+    _form: '\Drupal\appointment_booking_otp\Form\AppointmentForm'
+    _title: 'Book Appointment'
+  requirements:
+    _permission: 'access content'
+
+appointment_booking_otp.verify_otp:
+  path: '/appointment-booking/verify-otp'
+  defaults:
+    _form: '\Drupal\appointment_booking_otp\Form\OtpVerifyForm'
+    _title: 'Verify OTP'
+  requirements:
+    _permission: 'access content'

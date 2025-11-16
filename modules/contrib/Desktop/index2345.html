@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Location Search</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 40px; }
+  
+  .search-container {
+    position: relative;
+    width: 320px;
+  }
+
+  /* Input box with padding for icon */
+  input[type="text"] {
+    width: 100%;
+    padding: 10px 40px 10px 35px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+
+  /* Search icon styling */
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #888;
+    pointer-events: none;
+  }
+
+  .suggestions {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+    top: 45px;
+    max-height: 220px;
+    overflow-y: auto;
+    display: none;
+    z-index: 999;
+  }
+
+  .suggestions div {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .suggestions div:hover {
+    background: #f0f0f0;
+  }
+
+  .use-location {
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="search-container">
+  <span class="search-icon"> 📍</span>
+  <input type="text" id="locationInput" placeholder="Search your location...">
+  <div class="suggestions" id="suggestionsBox">
+    <div class="use-location" onclick="getLocation()"> 🔍Use my current location</div>
+  </div>
+</div>
+
+<script>
+const cities = [
+  "Delhi", "Agra", "Kanpur", "Lucknow", "Bangalore", "Hyderabad",
+  "Mumbai", "Pune", "Chennai", "Jaipur", "Indore", "Noida"
+];
+
+const input = document.getElementById("locationInput");
+const suggestions = document.getElementById("suggestionsBox");
+
+input.addEventListener("input", function() {
+  const value = this.value.toLowerCase();
+  suggestions.innerHTML = '<div class="use-location" onclick="getLocation()">📍 Use my current location</div>';
+  
+  if (value) {
+    const filtered = cities.filter(city => city.toLowerCase().includes(value));
+    filtered.forEach(city => {
+      const div = document.createElement("div");
+      div.textContent = city;
+      div.onclick = () => {
+        input.value = city;
+        suggestions.style.display = "none";
+      };
+      suggestions.appendChild(div);
+    });
+  }
+  suggestions.style.display = "block";
+});
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".search-container")) {
+    suggestions.style.display = "none";
+  }
+});
+
+// ✅ Get Current Location using browser geolocation
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+
+function showPosition(position) {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`)
+    .then(res => res.json())
+    .then(data => {
+      input.value = data.city || data.locality || "Location detected";
+      suggestions.style.display = "none";
+    });
+}
+
+function showError(error) {
+  alert("Unable to detect location. Please enter manually.");
+}
+</script>
+
+</body>
+</html>

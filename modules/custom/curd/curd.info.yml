@@ -1,0 +1,6 @@
+name: Curd
+type: module
+description: 'Simple CRUD module for name and mobile with admin email notification.'
+core_version_requirement: ^10
+package: Custom
+dependencies: []

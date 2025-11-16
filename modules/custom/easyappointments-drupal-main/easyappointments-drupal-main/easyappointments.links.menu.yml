@@ -1,0 +1,6 @@
+easyappointments.settings:
+  title: 'Easy!Appointments'
+  description: 'Configure the URL for Easy!Appointments.'
+  parent: system.admin_config_services
+  route_name: easyappointments.settings
+  weight: 100

@@ -1,0 +1,7 @@
+book_visit.form:
+  path: '/book-visit-form'
+  defaults:
+    _form: 'Drupal\book_visit\Form\BookVisitForm'
+    _title: 'Book a Visit'
+  requirements:
+    _permission: 'access content'

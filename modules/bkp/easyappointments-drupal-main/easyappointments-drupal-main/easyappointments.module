@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function easyappointments_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+    switch ($route_name) {
+        case 'help.page.easyappointments':
+            return '<p>' . t('This is the help page for Easy!Appointments.') . '</p>';
+    }
+    return '';
+}

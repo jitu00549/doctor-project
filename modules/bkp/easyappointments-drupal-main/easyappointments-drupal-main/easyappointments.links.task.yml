@@ -1,0 +1,4 @@
+easyappointments.configure:
+  route_name: easyappointments.settings
+  title: 'Configure'
+  base_route: system.modules_list

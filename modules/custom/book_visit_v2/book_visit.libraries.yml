@@ -1,0 +1,4 @@
+book_visit_style:
+  css:
+    theme:
+      css/book_visit.css: {}

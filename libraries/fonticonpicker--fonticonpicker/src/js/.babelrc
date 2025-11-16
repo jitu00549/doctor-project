@@ -1,0 +1,25 @@
+{
+	"presets": [
+		["@babel/preset-env", {
+			"targets": {
+				"browsers": ["last 2 versions", "safari >= 10"]
+			},
+			"shippedProposals": true,
+			"modules": false
+		}]
+	],
+	"env": {
+		"test": {
+			"presets": [
+				["@babel/preset-env", {
+					"targets": {
+						"node": "8.10"
+					},
+					"shippedProposals": true,
+					"modules": "commonjs"
+				}]
+			],
+			"plugins": ["@babel/plugin-transform-modules-commonjs"]
+		}
+	}
+}

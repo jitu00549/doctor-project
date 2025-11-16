@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * appointment_booking_otp.module
+ *
+ * (left intentionally simple; most logic lives in services and forms)
+ */

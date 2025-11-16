@@ -1,0 +1,8 @@
+book_visit.form:
+  path: "/book-visit-form/{nid}"
+  defaults:
+    _form: 'Drupal\\book_visit\\Form\\BookVisitForm'
+    _title: "Consult with a Doctor"
+  requirements:
+    _permission: "access content"
+    health_concern: '\\d+'

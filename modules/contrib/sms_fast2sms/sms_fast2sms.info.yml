@@ -1,0 +1,13 @@
+name: "Fast2sms"
+description: "Allows the SMS Framework to use Fast2sms as a gateway."
+package: SMS Framework
+type: module
+core_version_requirement: ^8 || ^9 || ^10 || ^11
+dependencies:
+  - smsframework:sms
+
+
+# Information added by Drupal.org packaging script on 2025-02-18
+version: '8.x-1.0-alpha3'
+project: 'sms_fast2sms'
+datestamp: 1739845653

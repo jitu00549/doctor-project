@@ -1,0 +1,8 @@
+name: 'Easy!Appointments'
+type: module
+description: 'This plugin will allow you to connect an existing Easy!Appointments installation via URL and use as a block into any page so that end-users can book without ever leaving your site.'
+core_version_requirement: ^10 || ^11
+package: Custom
+version: 1.0.0
+dependencies:
+  - drupal:system (>=10.0.0)

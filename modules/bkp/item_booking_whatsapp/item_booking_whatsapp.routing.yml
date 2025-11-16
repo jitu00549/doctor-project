@@ -1,0 +1,7 @@
+item_booking_whatsapp.form:
+  path: '/item-booking-whatsapp'
+  defaults:
+    _form: '\Drupal\item_booking_whatsapp\Form\ItemBookingForm'
+    _title: 'Book an Item'
+  requirements:
+    _permission: 'access content'

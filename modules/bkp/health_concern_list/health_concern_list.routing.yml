@@ -1,0 +1,7 @@
+health_concern_list.display:
+  path: '/health-concern/list'
+  defaults:
+    _controller: '\Drupal\health_concern_list\Controller\HealthConcernController::display'
+    _title: 'Health Concern List'
+  requirements:
+    _permission: 'access content'

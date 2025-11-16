@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Search - Bootstrap 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .search-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 3rem;
+            margin-top: 8rem;
+        }
+        
+        .form-control {
+            border-radius: 12px;
+            border: 2px solid #e9ecef;
+            padding: 18px 20px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #2d5aa0;
+            box-shadow: 0 0 0 0.2rem rgba(45, 90, 160, 0.25);
+        }
+        
+        .search-btn {
+            background: linear-gradient(45deg, #2d5aa0, #4a90e2);
+            border: none;
+            border-radius: 12px;
+            padding: 18px 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 90, 160, 0.3);
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 90, 160, 0.4);
+        }
+        
+        .results-container {
+            display: none;
+            margin-top: 3rem;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #2d5aa0;
+            transition: all 0.3s ease;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .rating {
+            color: #ffc107;
+        }
+        
+        .doctor-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #2d5aa0, #4a90e2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="search-container">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bold text-primary mb-3">Find Doctors</h1>
+                        <p class="lead text-muted">Search for doctors and specialists</p>
+                    </div>
+                    
+                    <!-- Search Form -->
+                    <form id="searchForm">
+                        <div class="row g-4">
+                            <div class="col-md-5">
+                                <label class="form-label fw-semibold mb-3">
+                                    <i class="fas fa-search me-2 text-primary"></i>Search Specialty or Condition
+                                </label>
+                                <input type="text" class="form-control" placeholder="e.g. Cardiologist, Heart Disease" id="searchInput">
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label fw-semibold mb-3">
+                                    <i class="fas fa-user-md me-2 text-success"></i>Doctor Name
+                                </label>
+                                <input type="text" class="form-control" placeholder="e.g. Dr. Smith, Dr. Johnson" id="doctorNameInput">
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary search-btn w-100">
+                                    <i class="fas fa-search me-2"></i>Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Search Results -->
+                    <div class="results-container" id="searchResults">
+                        <h4 class="mb-4 text-primary">
+                            <i class="fas fa-list-ul me-2"></i>Search Results
+                        </h4>
+                        
+                        <div class="doctor-card">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="doctor-avatar">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mb-2 text-primary">Dr. Sarah Johnson</h5>
+                                    <p class="text-muted mb-2">Cardiologist • 15 years experience</p>
+                                    <div class="rating mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="ms-2 text-muted">4.8 (324 reviews)</span>
+                                    </div>
+                                    <p class="mb-0">
+                                        <i class="fas fa-map-marker-alt text-danger me-2"></i>Apollo Hospital, Mumbai
+                                    </p>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <h5 class="text-success mb-1">₹800</h5>
+                                    <small class="text-muted">Consultation Fee</small>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-success w-100 mb-2">
+                                        <i class="fas fa-calendar-check me-1"></i>Book Now
+                                    </button>
+                                    <small class="text-success d-block">
+                                        <i class="fas fa-clock me-1"></i>Available Today
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="doctor-card">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="doctor-avatar">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mb-2 text-primary">Dr. Michael Chen</h5>
+                                    <p class="text-muted mb-2">Cardiologist • 12 years experience</p>
+                                    <div class="rating mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span class="ms-2 text-muted">4.5 (198 reviews)</span>
+                                    </div>
+                                    <p class="mb-0">
+                                        <i class="fas fa-map-marker-alt text-danger me-2"></i>Max Hospital, Delhi
+                                    </p>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <h5 class="text-success mb-1">₹600</h5>
+                                    <small class="text-muted">Consultation Fee</small>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-success w-100 mb-2">
+                                        <i class="fas fa-calendar-check me-1"></i>Book Now
+                                    </button>
+                                    <small class="text-warning d-block">
+                                        <i class="fas fa-clock me-1"></i>Tomorrow
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="doctor-card">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="doctor-avatar">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mb-2 text-primary">Dr. Priya Sharma</h5>
+                                    <p class="text-muted mb-2">Cardiologist • 18 years experience</p>
+                                    <div class="rating mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="ms-2 text-muted">4.9 (456 reviews)</span>
+                                    </div>
+                                    <p class="mb-0">
+                                        <i class="fas fa-map-marker-alt text-danger me-2"></i>Fortis Hospital, Bangalore
+                                    </p>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <h5 class="text-success mb-1">₹1200</h5>
+                                    <small class="text-muted">Consultation Fee</small>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-success w-100 mb-2">
+                                        <i class="fas fa-calendar-check me-1"></i>Book Now
+                                    </button>
+                                    <small class="text-success d-block">
+                                        <i class="fas fa-clock me-1"></i>Available Today
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Handle form submission
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const searchInput = document.getElementById('searchInput').value;
+            const doctorNameInput = document.getElementById('doctorNameInput').value;
+            const resultsContainer = document.getElementById('searchResults');
+            
+            // Show results if at least one field has input
+            if (searchInput.trim() || doctorNameInput.trim()) {
+                resultsContainer.style.display = 'block';
+                
+                // Smooth scroll to results
+                resultsContainer.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Add a subtle animation to the results
+                resultsContainer.style.opacity = '0';
+                setTimeout(() => {
+                    resultsContainer.style.transition = 'opacity 0.5s ease';
+                    resultsContainer.style.opacity = '1';
+                }, 100);
+            }
+        });
+        
+        // Handle booking buttons
+        document.querySelectorAll('.btn-success').forEach(button => {
+            button.addEventListener('click', function() {
+                const doctorName = this.closest('.doctor-card').querySelector('h5').textContent;
+                alert(`Booking appointment with ${doctorName}. You will be redirected to the booking page.`);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989ef8fb6373a7ce',t:'MTc1OTY4ODg0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,31 @@
+<div class="doctor-list-container">
+  {% for doctor in doctors %}
+    <div class="doctor-card">
+      <div class="doctor-left">
+        <img class="doctor-card-img image-field" src="/sites/default/files/styles/large/public/2025-10/Physiotherapist.jpg" alt="alok" width="230" height="161">
+      </div>
+
+      <div class="doctor-info">
+        <h3>{{ doctor.name }}</h3>
+        <p class="specialization">{{ doctor.specialization }}</p>
+        <p class="experience">{{ doctor.experience }}</p>
+        <p><strong>{{ doctor.address }}</strong> • {{ doctor.clinic_name }}</p>
+        <p>Card {{ doctor.card_type }}</p>
+        <p class="fee">₹{{ doctor.fee }} Consultation fee at clinic</p>
+
+        <div class="rating-section">
+          <span class="rating">👍 {{ doctor.rating }}</span>
+          <span class="stories">{{ doctor.stories }} Patient Stories</span>
+        </div>
+      </div>
+
+      <div class="doctor-actions">
+        <p class="available">✅ Available Today</p>
+        <a href="{{ doctor.book_link }}" class="btn btn-primary">Book Clinic Visit</a>
+        <a href="{{ doctor.contact_link }}" class="btn btn-outline-primary">📞 Contact Clinic</a>
+      </div>
+    </div>
+  {% else %}
+    <p>No doctors found.</p>
+  {% endfor %}
+</div>

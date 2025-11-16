@@ -1,0 +1,207 @@
+/* Typography Styles */
+.dxpr-theme-header--top #dxpr-theme-main-menu .nav > li > a,
+.dxpr-theme-header--top #dxpr-theme-main-menu .nav > li > span,
+.dxpr-theme-header--side #dxpr-theme-main-menu .nav a,
+.dxpr-theme-header--side #dxpr-theme-main-menu .nav span,
+.body--dxpr-theme-nav-desktop .dxpr-theme-header--top .nav .dropdown-menu li > a,
+.body--dxpr-theme-nav-desktop .dxpr-theme-header--top .nav .dropdown-menu li > span {
+  font-size: var(--dxt-setting-nav-font-size);
+}
+
+@media screen and (max-width: 768px) {
+  .dxpr-theme-header--top #dxpr-theme-main-menu .nav > li > a,
+  .dxpr-theme-header--top #dxpr-theme-main-menu .nav > li > span,
+  .dxpr-theme-header--side #dxpr-theme-main-menu .nav a,
+  .dxpr-theme-header--side #dxpr-theme-main-menu .nav span,
+  .body--dxpr-theme-nav-desktop .dxpr-theme-header--top .nav .dropdown-menu li > a,
+  .body--dxpr-theme-nav-desktop .dxpr-theme-header--top .nav .dropdown-menu li > span {
+    font-size: var(--dxt-setting-nav-mobile-font-size);
+  }
+}
+
+/* Theme Settings */
+:root {
+  --dxt-setting-background-image-attachment: fixed;
+  --dxt-setting-background-image-position: center center;
+  --dxt-setting-block-divider-length: 0.625rem;
+  --dxt-setting-block-divider-spacing: 1.25rem;
+  --dxt-setting-block-divider-thickness: 0.25rem;
+  --dxt-setting-blockquote-font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --dxt-setting-blockquote-font-size: 1.3125rem;
+  --dxt-setting-blockquote-line-height: 1.5;
+  --dxt-setting-blockquote-mobile-font-size: 1.125rem;
+  --dxt-setting-body-font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --dxt-setting-body-font-size: 1rem;
+  --dxt-setting-body-line-height: 1.6;
+  --dxt-setting-body-mobile-font-size: 0.875rem;
+  --dxt-setting-box-max-width: 98.75rem;
+  --dxt-setting-boxed-layout-boxbg: #ffffff;
+  --dxt-setting-divider-length: 100;
+  --dxt-setting-divider-position: 0;
+  --dxt-setting-divider-position-block: 0;
+  --dxt-setting-divider-thickness: 0.25rem;
+  --dxt-setting-gutter-container: 3.75rem;
+  --dxt-setting-gutter-container-mobile: 1.875rem;
+  --dxt-setting-gutter-horizontal: 1.875rem;
+  --dxt-setting-gutter-horizontal-mobile: 1.875rem;
+  --dxt-setting-gutter-vertical: 1.875rem;
+  --dxt-setting-gutter-vertical-mobile: 1.875rem;
+  --dxt-setting-h1-font-size: 3.25rem;
+  --dxt-setting-h1-mobile-font-size: 3.25rem;
+  --dxt-setting-h2-font-size: 2.375rem;
+  --dxt-setting-h2-mobile-font-size: 2.375rem;
+  --dxt-setting-h3-font-size: 1.8125rem;
+  --dxt-setting-h3-mobile-font-size: 1.8125rem;
+  --dxt-setting-h4-font-size: 1.3125rem;
+  --dxt-setting-h4-mobile-font-size: 1.5rem;
+  --dxt-setting-header-mobile-breakpoint: 75rem;
+  --dxt-setting-header-mobile-height: 3.75rem;
+  --dxt-setting-header-side-align: left;
+  --dxt-setting-header-side-direction: left;
+  --dxt-setting-header-side-width: 18.75rem;
+  --dxt-setting-header-top-bg-opacity: 1;
+  --dxt-setting-header-top-bg-opacity-scroll: 1;
+  --dxt-setting-header-top-height: 6.25rem;
+  --dxt-setting-header-top-height-scroll: 3.125rem;
+  --dxt-setting-header-top-height-sticky-offset: 3.75rem;
+  --dxt-setting-headings-bold: bold;
+  --dxt-setting-headings-font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --dxt-setting-headings-line-height: 1.1;
+  --dxt-setting-headings-uppercase: none;
+  --dxt-setting-layout-max-width: 80rem;
+  --dxt-setting-menu-border-size: 0.125rem;
+  --dxt-setting-nav-font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --dxt-setting-nav-font-size: 1rem;
+  --dxt-setting-nav-mobile-font-size: 0.875rem;
+  --dxt-setting-page-title-align: left;
+  --dxt-setting-page-title-height: 7.5rem;
+  --dxt-setting-page-title-image-opacity: 1;
+  --dxt-setting-page-title-image-position: center center;
+  --dxt-setting-page-title-image-style: cover;
+  --dxt-setting-scale-factor: 1.34;
+  --dxt-setting-sitename-font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --dxt-setting-title-align: left;
+  --dxt-setting-title-font-size: var(--dxt-setting-h3-font-size);
+  --dxt-setting-title-font-size-mobile: var(--dxt-setting-h3-mobile-font-size);
+  --dxt-setting-title-sticker: block;
+}
+
+/* Page Title Styles */
+.page-title-full-width-container:after {
+  opacity: var(--dxt-setting-page-title-image-opacity);
+  background-position: var(--dxt-setting-page-title-image-position);
+}
+
+/* Layout Styles */
+.dxpr-theme-boxed-container { background: var(--dxt-setting-boxed-layout-boxbg); }
+.dxpr-theme-boxed-container .nav-tabs >li.active a { border-bottom-color: var(--dxt-setting-boxed-layout-boxbg); }
+.dxpr-theme-boxed-container .tabs-left > .nav-tabs .active > a { border-right-color: var(--dxt-setting-boxed-layout-boxbg); }
+.dxpr-theme-boxed-container .tabs-right > .nav-tabs .active > a { border-left-color: var(--dxt-setting-boxed-layout-boxbg); }
+
+body {
+  background-position: var(--dxt-setting-background-image-position);
+  background-attachment: var(--dxt-setting-background-image-attachment);
+}
+
+/* Header Styling */
+.body--dxpr-theme-nav-desktop #navbar.dxpr-theme-header--top {
+  background-color: rgba(var(--dxt-color-header-rgb), var(--dxt-setting-header-top-bg-opacity));
+}
+.body--dxpr-theme-nav-desktop #navbar.dxpr-theme-header--top.affix {
+  background-color: rgba(var(--dxt-color-header-rgb), var(--dxt-setting-header-top-bg-opacity-scroll));
+}
+
+.body--dxpr-theme-nav-desktop.body--dxpr-theme-header-fixed.body--dxpr-theme-header-not-overlay {
+  padding-top: var(--dxt-setting-header-top-height) !important;
+}
+
+html.js .body--dxpr-theme-nav-desktop.toolbar-fixed.toolbar-horizontal.body--dxpr-theme-header-fixed.body--dxpr-theme-header-not-overlay {
+  padding-top: calc(var(--dxt-setting-header-top-height) + 39px) !important;
+}
+
+html.js .body--dxpr-theme-nav-desktop.toolbar-fixed.toolbar-horizontal.toolbar-tray-open.toolbar-horizontal.body--dxpr-theme-header-fixed.body--dxpr-theme-header-not-overlay {
+  padding-top: calc(var(--dxt-setting-header-top-height) + 80px) !important;
+}
+
+.html--dxpr-theme-sticky-footer .body--dxpr-theme-nav-desktop .dxpr-theme-header--top {
+  height: var(--dxt-setting-header-top-height);
+}
+
+.html--dxpr-theme-sticky-footer .body--dxpr-theme-nav-desktop .dxpr-theme-header--top.affix {
+  min-height: var(--dxt-setting-header-top-height-scroll);
+}
+
+.html--dxpr-theme-sticky-footer .body--dxpr-theme-nav-mobile .dxpr-theme-header {
+  min-height: var(--dxt-setting-header-mobile-height);
+}
+
+.html--dxpr-theme-sticky-footer .body--dxpr-theme-nav-mobile .dxpr-theme-header.affix {
+  min-height: var(--dxt-setting-header-mobile-height);
+}
+
+/* Menu Options */
+.dxpr-theme-header .menu a {
+  text-transform: uppercase;
+}
+
+/* body font face */
+body, .tooltip {
+  font-family: var(--dxt-setting-body-font-face);
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* nav font face */
+nav,nav ul li,nav a {
+  font-family: var(--dxt-setting-nav-font-face);
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* headings font face */
+h1,h2,h3,h4,h5,h6,label,.field--label,.page-title, .html .tp-caption {
+  font-family: var(--dxt-setting-headings-font-face);
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* sitename font face */
+.site-name, .navbar-brand {
+  font-family: var(--dxt-setting-sitename-font-face);
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* blockquote font face */
+blockquote, blockquote p {
+  font-family: var(--dxt-setting-blockquote-font-face);
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root.dxpr-scheme-custom {
+  --dxt-color-base: #284ed9;
+  --dxt-color-link: #284ed9;
+  --dxt-color-accent1: #05e993;
+  --dxt-color-accent2: #284fd8;
+  --dxt-color-text: #555555;
+  --dxt-color-headings: #333333;
+  --dxt-color-footer: #21252a;
+  --dxt-color-footertext: #747a85;
+  --dxt-color-secheader: #284fd9;
+  --dxt-color-secheadertext: #fffffe;
+  --dxt-color-card: #eeeeee;
+  --dxt-color-cardtext: #444444;
+  --dxt-color-header: #ffffff;
+  --dxt-color-headertext: #696969;
+  --dxt-color-headerside: #20252a;
+  --dxt-color-headersidetext: #737a85;
+  --dxt-color-pagetitle: #284fdb;
+  --dxt-color-pagetitletext: #fffeff;
+  --dxt-color-graylight: #cccccc;
+  --dxt-color-graylighter: #ededed;
+  --dxt-color-silver: #f1f1f1;
+  --dxt-color-body: #efefef;
+  --dxt-color-header-rgb: 255,255,255;
+}
+

@@ -1,0 +1,287 @@
+.item-list {
+  list-style: none;
+  padding: 0;
+}
+.item-list li {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.item-list img {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.doctor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.doctor-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+.doctor-card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.doctor-info h3 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.doctor-info p {
+  margin: 2px 0;
+}
+
+.available-today {
+  color: green;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.doctor-buttons {
+  display: flex;
+  justify-content: space-between; /* Book button right, contact left */
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+}
+
+
+
+.doctor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.doctor-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+.doctor-card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.doctor-info h3 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.doctor-info p {
+  margin: 2px 0;
+}
+
+.available-today {
+  color: green;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.doctor-buttons {
+  display: flex;
+  justify-content: space-between; /* Book button right, contact left */
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+}
+
+
+.doctor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.doctor-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+.doctor-card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.doctor-info h3 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.doctor-info p {
+  margin: 2px 0;
+}
+
+.available-today {
+  color: green;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.doctor-buttons {
+  display: flex;
+  justify-content: space-between; /* Book Now right, contact left */
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+
+.doctor-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.doctor-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.doctor-left img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.doctor-info {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.doctor-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.specialization {
+  font-weight: bold;
+  color: #555;
+}
+
+.fee {
+  font-weight: 500;
+  color: #444;
+}
+
+.rating-section {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating {
+  background: #e6ffe6;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+.doctor-actions {
+  text-align: right;
+}
+
+.doctor-actions .btn {
+  display: block;
+  margin-top: 5px;
+  border-radius: 8px;
+}
+
+.available {
+  color: green;
+  font-weight: 600;
+}

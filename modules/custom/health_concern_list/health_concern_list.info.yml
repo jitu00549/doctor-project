@@ -1,0 +1,6 @@
+name: 'Health Concern List'
+type: module
+description: 'Fetch and display all health concern content with related fields.'
+core_version_requirement: ^10
+package: Custom
+version: 1.0

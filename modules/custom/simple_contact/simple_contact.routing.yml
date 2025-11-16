@@ -1,0 +1,31 @@
+simple_contact.list:
+  path: '/admin/content/simple-contact'
+  defaults:
+    _controller: '\Drupal\simple_contact\Controller\ContactController::list'
+    _title: 'Simple contacts'
+  requirements:
+    _permission: 'access content'
+
+simple_contact.add:
+  path: '/admin/content/simple-contact/add'
+  defaults:
+    _form: '\Drupal\simple_contact\Form\ContactForm'
+    _title: 'Add contact'
+  requirements:
+    _permission: 'access content'
+
+simple_contact.edit:
+  path: '/admin/content/simple-contact/{id}/edit'
+  defaults:
+    _form: '\Drupal\simple_contact\Form\ContactForm'
+    _title: 'Edit contact'
+  requirements:
+    _permission: 'access content'
+
+simple_contact.delete:
+  path: '/admin/content/simple-contact/{id}/delete'
+  defaults:
+    _form: '\Drupal\simple_contact\Form\ContactDeleteForm'
+    _title: 'Delete contact'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,11 @@
+booking_form_styles:
+  version: 1.x
+  css:
+    theme:
+      css/booking-form.css: {}
+  js:
+    js/booking-form.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

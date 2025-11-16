@@ -1,0 +1,7 @@
+access doctor search:
+  title: "Access doctor search form"
+  description: "Allow users to search for doctors by location or specialization."
+
+access doctor search api:
+  title: "Access doctor search REST API"
+  description: "Allow access to the doctor search API endpoint."

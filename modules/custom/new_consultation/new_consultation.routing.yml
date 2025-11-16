@@ -1,0 +1,7 @@
+new_consultation.page:
+  path: "/direct/new_consultation/{nid}"
+  defaults:
+    _controller: '\Drupal\new_consultation\Controller\ConsultationController::view'
+    _title: "New Consultation"
+  requirements:
+    _permission: "access content"

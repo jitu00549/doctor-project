@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Indian State & District Auto Detect + Search</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+  padding: 50px;
+}
+
+.c-omni-searchbox_wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 8px 15px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.c-omni-searchbox__icon {
+  margin-right: 10px;
+  color: #007bff;
+  font-size: 18px;
+}
+
+.c-omni-searchbox {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.c-omni-clear {
+  cursor: pointer;
+  color: #888;
+  font-size: 16px;
+  margin-left: 5px;
+  display: none;
+}
+
+#status {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #555;
+}
+
+.suggestions {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.suggestion-item {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background: #f0f0f0;
+}
+</style>
+</head>
+<body>
+
+<div class="c-omni-searchbox_wrapper">
+  <span class="c-omni-searchbox__icon">📍</span>
+  <input type="text" id="location" class="c-omni-searchbox"
+         placeholder="Search Indian state/district" autocomplete="off" />
+  <span class="c-omni-clear" id="clearBtn">✖</span>
+  <div id="suggestions" class="suggestions" style="display:none;"></div>
+</div>
+
+<p id="status">Detecting your state/district...</p>
+
+<script>
+$(function(){
+  const $input = $('#location');
+  const $suggestions = $('#suggestions');
+
+  const india = [
+    {state:"Delhi", districts:["New Delhi","North Delhi","South Delhi"]},
+    {state:"Maharashtra", districts:["Mumbai","Pune","Nagpur","Thane"]},
+    {state:"Karnataka", districts:["Bangalore","Mysore","Mangalore"]},
+    {state:"Uttar Pradesh", districts:["Lucknow","Kanpur","Agra","Varanasi"]},
+    {state:"Tamil Nadu", districts:["Chennai","Coimbatore","Madurai"]},
+    // Add all Indian states and districts here
+  ];
+
+  function setStatus(msg){ $('#status').text(msg); }
+
+  function fillDetectedLocation(data){
+    if(!data) return;
+    const addr = data.address || {};
+    const state = addr.state || '';
+    const district = addr.county || addr.city || '';
+    const display = district ? district + ', ' + state : state;
+    $input.val(display);
+    $('#clearBtn').show();
+    setStatus('✅ Current location: ' + display);
+  }
+
+  // Detect location automatically
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(async function(pos){
+      const lat = pos.coords.latitude, lon = pos.coords.longitude;
+      setStatus("📍 Detecting your location...");
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&addressdetails=1&country=India`);
+        const data = await res.json();
+        fillDetectedLocation(data);
+      } catch(e){
+        setStatus("⚠️ Unable to detect location. Type manually.");
+      }
+    }, function(){
+      setStatus("⚠️ Unable to detect location. Type manually.");
+    });
+  }
+
+  $('#clearBtn').click(function(){
+    $input.val('');
+    $(this).hide();
+    $suggestions.hide();
+  });
+
+  function search(query){
+    query = query.toLowerCase();
+    const results = [];
+    india.forEach(item=>{
+      if(item.state.toLowerCase().includes(query)){
+        results.push(item.state);
+      }
+      item.districts.forEach(d=>{
+        if(d.toLowerCase().includes(query)){
+          results.push(d + ' (' + item.state + ')');
+        }
+      });
+    });
+    return results.slice(0,5); // max 5 suggestions
+  }
+
+  function showSuggestions(query){
+    if(query.length < 1){
+      $suggestions.hide();
+      return;
+    }
+    const results = search(query);
+    if(!results.length){
+      $suggestions.hide();
+      return;
+    }
+    let html = '';
+    results.forEach(r=>{
+      html += `<div class="suggestion-item" data-name="${r}">${r}</div>`;
+    });
+    $suggestions.html(html).show();
+  }
+
+  $input.on('input', function(){
+    const query = $(this).val();
+    $('#clearBtn').toggle(query.length > 0);
+    showSuggestions(query);
+  });
+
+  $suggestions.on('click', '.suggestion-item', function(){
+    const name = $(this).data('name');
+    $input.val(name);
+    $suggestions.hide();
+    setStatus('📍 Selected: ' + name);
+  });
+
+  $(document).on('click', function(e){
+    if(!$(e.target).closest('.c-omni-searchbox_wrapper').length){
+      $suggestions.hide();
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Curd module: mail templates and helpers.
+ */
+
+/**
+ * Implements hook_mail().
+ */
+function curd_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'new_record_admin':
+      $message['subject'] = t('New Curd record: @name', ['@name' => $params['name']]);
+      $message['body'][] = t('A new record has been submitted on the site.');
+      $message['body'][] = t('Name: @name', ['@name' => $params['name']]);
+      $message['body'][] = t('Mobile: @mobile', ['@mobile' => $params['mobile']]);
+      $message['body'][] = t('Submitted on: @time', ['@time' => $params['time']]);
+      break;
+  }
+}

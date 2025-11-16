@@ -1,0 +1,7 @@
+name: Direct New Consultation
+type: module
+description: Provides a direct consultation booking form fetching health_concern content and sending WhatsApp confirmation (logs + optional Cloud API).
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:node

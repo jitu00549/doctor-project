@@ -1,0 +1,11 @@
+doctor_search:
+  css:
+    theme:
+      css/doctor-search.css: {}
+  js:
+    js/doctor-search.js: {}
+    js/location-handler.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

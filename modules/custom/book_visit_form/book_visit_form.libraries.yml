@@ -1,0 +1,10 @@
+custom_styles:
+  css:
+    theme:
+      css/book_visit_form.css: {}
+modal:
+  js:
+    js/book_visit_form.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

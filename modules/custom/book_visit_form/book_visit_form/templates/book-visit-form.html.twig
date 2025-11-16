@@ -1,0 +1,114 @@
+<div id="book-visit-container" class="container mt-3">
+  <div class="row g-4 align-items-start">
+
+    <!-- LEFT SIDE: Form -->
+    <div class="col-md-6">
+      <div class="p-4 rounded-3 shadow-sm bg-white position-relative">
+        <h4 class="book-visit-title mb-3">Consult with a Doctor</h4>
+
+        <!-- Speciality -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Speciality</label>
+          <div class="speciality-box border rounded-2 p-2 d-inline-block bg-light-subtle shadow-sm" style="min-width:220px; cursor:pointer;">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="speciality_gynaecology" checked disabled>
+              <label class="form-check-label fw-semibold" for="speciality_gynaecology">
+                Gynaecology
+                <span class="badge bg-light text-dark ms-2">₹499</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Name -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold" for="edit-name">Patient Name</label>
+          <input type="text" id="edit-name" name="name" class="form-control" placeholder="Enter patient name for prescriptions" required>
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold" for="edit-phone">Mobile number</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0">
+              <img src="https://flagcdn.com/w20/in.png" alt="IN" width="20" height="14" style="border-radius:2px;">
+            </span>
+            <input type="text" id="edit-phone" name="phone" class="form-control border-start-0" placeholder="Enter mobile number" maxlength="10" required>
+          </div>
+          <small class="form-text text-muted">A verification code will be sent to this number.</small>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-end">
+          <button type="submit" id="edit-submit" class="btn btn-primary">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: Single-image slider -->
+    <div class="col-md-6">
+      <div class="p-3 rounded-3 shadow-sm bg-light text-center">
+        <div id="doctor-slider" class="position-relative" style="height: 350px; overflow: hidden;">
+          <img src="https://cdn-icons-png.flaticon.com/512/387/387561.png" class="slider-img active" width="180" alt="Doctor 1">
+          <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" class="slider-img" width="180" alt="Doctor 2">
+          <img src="https://cdn-icons-png.flaticon.com/512/4323/4323853.png" class="slider-img" width="180" alt="Doctor 3">
+          <img src="https://cdn-icons-png.flaticon.com/512/4323/4323858.png" class="slider-img" width="180" alt="Doctor 4">
+        </div>
+        <div class="mt-3 text-muted small">Our trusted specialists</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Hover & style tweaks */
+  .speciality-box:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Image slider styles */
+  #doctor-slider {
+    position: relative;
+  }
+  .slider-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .slider-img.active {
+    opacity: 1;
+  }
+
+  /* Close animation */
+  #book-visit-container.fade-out {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  (function () {
+    const images = document.querySelectorAll(".slider-img");
+    let index = 0;
+    setInterval(() => {
+      images[index].classList.remove("active");
+      index = (index + 1) % images.length;
+      images[index].classList.add("active");
+    }, 3000);
+
+    const closeBtn = document.getElementById("close-form-btn");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        const container = document.getElementById("book-visit-container");
+        container.classList.add("fade-out");
+        setTimeout(() => container.remove(), 500);
+      });
+    }
+  })();
+</script>

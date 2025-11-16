@@ -1,0 +1,15 @@
+<?php
+
+use Drupal\Core\Messenger\MessengerInterface;
+
+/**
+ * Implements hook_mail().
+ */
+function book_visit_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'booking_request':
+      $message['subject'] = isset($params['subject']) ? $params['subject'] : 'New booking request';
+      $message['body'][] = isset($params['message']) ? $params['message'] : '';
+      break;
+  }
+}

@@ -1,0 +1,92 @@
+# These will be loaded on every pages.
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css:
+        {}
+      https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css:
+        {}
+      https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css:
+        {}
+      css/style.css: {}
+  js:
+    https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js:
+      {}
+    js/tara.js: {}
+  dependencies:
+    - core/jquery
+
+# Slider
+slider:
+  version: 3.0.0
+  css:
+    component:
+      css/slider.css: {}
+  js:
+    js/slider.js: {}
+  dependencies:
+    - core/jquery
+
+# Google Fonts from CDN
+googlefontscdn:
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Open+Sans|Roboto: { type: external }
+
+# Google Fonts from local
+googlefontslocal:
+  version: VERSION
+  css:
+    theme:
+      css/font.css: {}
+
+# Book
+book:
+  version: VERSION
+  css:
+    component:
+      css/book.css: {}
+
+# FontAwesome 4
+fontawesome4:
+  version: 4.7
+  css:
+    component:
+      css/fontawesome4.css: {}
+
+# FontAwesome 5
+fontawesome5:
+  version: 5.15.4
+  css:
+    component:
+      css/fontawesome5.css: { weight: -10 }
+
+# FontAwesome 6
+fontawesome6:
+  version: 6.7.1
+  css:
+    component:
+      css/fontawesome6.css: { weight: -10 }
+
+# Bootstrap Icons
+bootstrap-icons:
+  version: 1.11.3
+  css:
+    component:
+      css/bootstrap-icons.css: {}
+
+# Load in head section
+script-header:
+  header: true
+  js:
+    js/blank.js: {}
+  dependencies:
+    - core/jquery
+
+# Theme settings page
+theme-settings:
+  version: VERSION
+  css:
+    theme:
+      css/theme-settings.css: {}

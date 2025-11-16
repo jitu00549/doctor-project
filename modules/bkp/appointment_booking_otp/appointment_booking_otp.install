@@ -1,0 +1,114 @@
+<?php
+
+/**
+ * @file
+ * Install file for appointment_booking_otp module.
+ */
+
+use Drupal\node\Entity\NodeType;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+
+/**
+ * Implements hook_schema().
+ */
+function appointment_booking_otp_schema() {
+  $schema['appointment_bookings'] = [
+    'fields' => [
+      'id' => ['type' => 'serial', 'not null' => TRUE],
+      'name' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+      'phone' => ['type' => 'varchar', 'length' => 20, 'not null' => TRUE],
+      'doctor' => ['type' => 'varchar', 'length' => 255],
+      'date' => ['type' => 'varchar', 'length' => 50],
+      'time_slot' => ['type' => 'varchar', 'length' => 50],
+      'duration' => ['type' => 'varchar', 'length' => 20],
+      'created' => ['type' => 'int', 'not null' => TRUE],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function appointment_booking_otp_install() {
+  // Create 'appointment' content type if it does not exist.
+  if (!NodeType::load('appointment')) {
+    $type = NodeType::create([
+      'type' => 'appointment',
+      'name' => 'Appointment',
+    ]);
+    $type->save();
+
+    // Add fields: field_phone, field_doctor, field_date, field_time_slot.
+    if (!FieldStorageConfig::loadByName('node', 'field_phone')) {
+      FieldStorageConfig::create([
+        'field_name' => 'field_phone',
+        'entity_type' => 'node',
+        'type' => 'string',
+        'settings' => ['max_length' => 20],
+      ])->save();
+    }
+    if (!FieldConfig::loadByName('node', 'appointment', 'field_phone')) {
+      FieldConfig::create([
+        'field_name' => 'field_phone',
+        'entity_type' => 'node',
+        'bundle' => 'appointment',
+        'label' => 'Phone',
+      ])->save();
+    }
+
+    if (!FieldStorageConfig::loadByName('node', 'field_doctor')) {
+      FieldStorageConfig::create([
+        'field_name' => 'field_doctor',
+        'entity_type' => 'node',
+        'type' => 'string',
+        'settings' => ['max_length' => 255],
+      ])->save();
+    }
+    if (!FieldConfig::loadByName('node', 'appointment', 'field_doctor')) {
+      FieldConfig::create([
+        'field_name' => 'field_doctor',
+        'entity_type' => 'node',
+        'bundle' => 'appointment',
+        'label' => 'Doctor',
+      ])->save();
+    }
+
+    if (!FieldStorageConfig::loadByName('node', 'field_date')) {
+      FieldStorageConfig::create([
+        'field_name' => 'field_date',
+        'entity_type' => 'node',
+        'type' => 'datetime',
+        'settings' => ['datetime_type' => 'date'],
+      ])->save();
+    }
+    if (!FieldConfig::loadByName('node', 'appointment', 'field_date')) {
+      FieldConfig::create([
+        'field_name' => 'field_date',
+        'entity_type' => 'node',
+        'bundle' => 'appointment',
+        'label' => 'Appointment Date',
+      ])->save();
+    }
+
+    if (!FieldStorageConfig::loadByName('node', 'field_time_slot')) {
+      FieldStorageConfig::create([
+        'field_name' => 'field_time_slot',
+        'entity_type' => 'node',
+        'type' => 'string',
+        'settings' => ['max_length' => 50],
+      ])->save();
+    }
+    if (!FieldConfig::loadByName('node', 'appointment', 'field_time_slot')) {
+      FieldConfig::create([
+        'field_name' => 'field_time_slot',
+        'entity_type' => 'node',
+        'bundle' => 'appointment',
+        'label' => 'Time Slot',
+      ])->save();
+    }
+  }
+}

@@ -1,0 +1,30 @@
+booking_crud.add_form:
+  path: '/booking/add'
+  defaults:
+    _form: '\Drupal\booking_crud\Form\BookingForm'
+    _title: 'Add Booking'
+  requirements:
+    _permission: 'access content'
+
+booking_crud.list:
+  path: '/admin/booking/list'
+  defaults:
+    _controller: '\Drupal\booking_crud\Controller\BookingController::list'
+    _title: 'Booking List'
+  requirements:
+    _permission: 'access content'
+
+booking_crud.delete:
+  path: '/booking/delete/{id}'
+  defaults:
+    _controller: '\Drupal\booking_crud\Controller\BookingController::delete'
+  requirements:
+    _permission: 'access content'
+
+booking_crud.edit:
+  path: '/booking/edit/{id}'
+  defaults:
+    _form: '\Drupal\booking_crud\Form\BookingForm'
+    _title: 'Edit Booking'
+  requirements:
+    _permission: 'access content'

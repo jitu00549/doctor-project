@@ -1,0 +1,23 @@
+custom_booking.form:
+  path: '/booking'
+  defaults:
+    _form: '\Drupal\custom_booking\Form\BookingForm'
+    _title: 'Book Appointment'
+  requirements:
+    _permission: 'access content'
+
+custom_booking.verify:
+  path: '/booking/verify/{session_id}'
+  defaults:
+    _form: '\Drupal\custom_booking\Form\VerifyOtpForm'
+    _title: 'Verify OTP'
+  requirements:
+    _permission: 'access content'
+
+custom_booking.confirmation:
+  path: '/booking/confirmation/{booking_code}'
+  defaults:
+    _controller: '\Drupal\custom_booking\Controller\BookingController::confirmation'
+    _title: 'Booking Confirmation'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,5 @@
+name: 'Item Booking'
+type: module
+description: 'Custom module for item booking and WhatsApp message sending.'
+core_version_requirement: ^10
+package: Custom
